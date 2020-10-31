@@ -42,6 +42,7 @@
                 <div class="form-group">
                     <strong>Old Product Image</strong>
                     <img src="{{URL::to($product->logo)}}" height="70px;" width="70px;" alt="Product Image">
+                <input type="hidden" name="old_logo" value="{{ $product->logo }}">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
