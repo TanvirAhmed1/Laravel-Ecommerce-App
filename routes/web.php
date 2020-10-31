@@ -23,3 +23,5 @@ Route::get('/', function () {
 Route::get('products', 'ProductController@index')->name('product.index');
 Route::get('create', 'ProductController@create')->name('product.create');
 Route::post('store', 'ProductController@Store')->name('product.store');
+Route::get('edit/product/{id}', 'ProductController@Edit');
+Route::get('update/product/{id}', 'ProductController@Update');

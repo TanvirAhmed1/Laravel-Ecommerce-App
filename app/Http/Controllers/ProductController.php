@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Product;
 use Illuminate\Http\Request;
 use DB;
+use Illuminate\Support\Facades\DB as FacadesDB;
+
 class ProductController extends Controller
 {
     public function index(){
@@ -32,5 +34,9 @@ class ProductController extends Controller
             return redirect()->route('product.index')
                             ->with('success','Product Created Successfully');
         }
+    }
+    public function Edit($id){
+        $product = DB::table('products')->where('id',$id)->first();
+        return view('product.edit', compact('product'));
     }
 }
