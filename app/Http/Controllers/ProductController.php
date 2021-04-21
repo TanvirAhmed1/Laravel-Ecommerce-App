@@ -55,10 +55,13 @@ class ProductController extends Controller
             $image_url = $upload_path.$image_full_name;
             $success = $image->move($upload_path,$image_full_name);
             $data['logo']=$image_url;
-            $product = DB::table('products')->where('id', $id)->update($data);
-            return redirect()->route('product.index')
-                            ->with('success','Product Updated Successfully');
+//            $product = DB::table('products')->where('id', $id)->update($data);
+//            return redirect()->route('product.index')
+//                            ->with('success','Product Updated Successfully');
         }
+        $product = DB::table('products')->where('id', $id)->update($data);
+        return redirect()->route('product.index')
+            ->with('success','Product Updated Successfully');
     }
     public function Delete($id){
         $data = DB::table('products')->where('id', $id)->first();
